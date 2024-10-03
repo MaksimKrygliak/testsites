@@ -1,15 +1,17 @@
-'use client'
+'use client';
 import React from "react";
 import Link from "next/link";
-// import { Marck_Script } from "next/font/google";
 import { Rubik_Wet_Paint } from "next/font/google";
 import styles from "./styles/header.module.scss";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Button} from "@nextui-org/react";
-
-// const marckScript = Marck_Script({
-//   weight: "400",
-//   subsets: ["latin", "cyrillic"],
-// });
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+} from "@nextui-org/react";
 
 const rubik_Wet_Paint = Rubik_Wet_Paint({
   weight: "400",
@@ -27,12 +29,16 @@ export default function Header() {
     { name: "Контакти", href: "/contacts" },
   ];
 
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false); // Закрыть меню при клике
+  };
+
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className={`${rubik_Wet_Paint.className} ${styles.header}`}>
+    <Navbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen} className={`${rubik_Wet_Paint.className} ${styles.header}`}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="header_benu_btn sm:hidden "
+          className="header_benu_btn sm:hidden"
         />
         <NavbarBrand>
           <Link href="./home" color="foreground" className="font-bold text-inherit">LOGO</Link>
@@ -56,7 +62,7 @@ export default function Header() {
               color="foreground"
               className="w-full"
               href={item.href}
-              size="lg"
+              onClick={handleMenuItemClick} // Закрыть меню при клике на ссылку
             >
               {item.name}
             </Link>
@@ -66,4 +72,3 @@ export default function Header() {
     </Navbar>
   );
 }
-
