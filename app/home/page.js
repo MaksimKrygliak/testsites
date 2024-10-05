@@ -20,21 +20,14 @@ export default function Home() {
   return (
     <>
       <section className={styles.main_block}>
-        <div className={styles.image}>
+        <div className={styles.image_box}>
           <Image
-            // className={styles.main_image}
-            alt="error"
+            className={styles.image}
+            alt="mainImage"
             src={mainImage}
             placeholder="blur"
             quality={100}
-            fill
-            // sizes="100vw"
-            style={{
-              width: "100%", // Задает ширину изображения на 100% ширины контейнера
-              // height: "auto", // Автоматическая высота для сохранения пропорций
-              objectFit: "contain", // Изображение масштабируется, не обрезаясь
-              // objectPosition: "top",
-            }}
+            loading="lazy"
           />
         </div>
         <div className={styles.main_block_description}>

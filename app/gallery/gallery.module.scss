@@ -5,7 +5,7 @@
   width: 100%;
   min-height: 90vh;
   font-size: 20px;
-  padding: 0 20px;
+  padding: 10px 20px;
 
   .link {
     display: flex;
@@ -14,7 +14,13 @@
     max-width: 300px;
     margin: 0 auto;
     height: auto;
-    // background-color: rgb(0, 119, 58);
+    overflow: hidden;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
     
     .image_box {
       // position: relative;

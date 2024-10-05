@@ -1,44 +1,37 @@
 .main_block {
-  // display: grid;
-  // grid-template-columns: repeat(2, 1fr); /* Три колонки одинаковой ширины */
-  // gap: 40px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 40px;
+  // justify-content: space-between;
+  // flex-wrap: wrap;
   align-items: center;
-  margin: 0 auto;
+  // margin: 0 auto;
   width: 100%;
-  max-width: 1200px;
-  padding: 5%;
-  height: 100vh;
+  padding: 2% 5%;
+  min-height: 90vh;
 
-  .image {
-    position: relative;
-    display: block;
+  .image_box {
+    // position: relative;
     // width: 100%;
-    // max-width: 400px;
-    flex-basis: 300px;
-    // min-width: 280px;
-    height: 500px;
-    flex-grow: 1; 
+    max-width: 350px;
+    flex: 1 1 300px;
+    margin: 0 auto;
   }
 
   .main_block_description {
     display: block;
     flex-basis: 400px;
-    min-width: 370px;
-    flex-grow: 1; 
+    min-width: 200px;
+    flex-grow: 1;
     color: #655239;
-    margin-left: 5%;
-    // background-color: #8b7862;
 
     .artist_name {
-      font-size: 40px;
+      font-size: 2.5rem;
       text-align: center;
       margin-bottom: 30px;
     }
     .artist_name__description {
-      font-size: 20px;
+      font-size: 1.3rem;
 
       .icon_wrapper {
         display: inline-block;
@@ -46,5 +39,22 @@
         vertical-align: bottom; /* Выравнивание по нижнему краю текста */
       }
     }
+  }
+}
+
+// @media (min-width: 370px) {
+//   .main_block {
+//     grid-template-columns: repeat(1, 1fr);
+//   }
+// }
+
+@media (max-width: 668px) {
+  .main_block {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (min-width: 668px) {
+  .main_block {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -131,7 +131,7 @@ export default function Contacts() {
                 <span>+38</span>
               }
               label="Phone"
-              placeholder="0 (___) __-__-___"
+              placeholder="(___) __-__-___"
               defaultValue=""
               // type="tel"
               variant="bordered"

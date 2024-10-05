@@ -22,7 +22,6 @@ export default function About() {
             placeholder="blur"
             quality={100}
             fill
-            // sizes="100vw"
             style={{
               // width: "100%",  // Задает ширину изображения на 100% ширины контейнера
               // height: "auto", // Автоматическая высота для сохранения пропорций
