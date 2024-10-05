@@ -39,7 +39,7 @@ export default function Home() {
         </div>
         <div className={styles.main_block_description}>
           <h1 className={`${marckScript.className} ${styles.artist_name}`}>
-            Олександр Малаховськийqqq
+            Олександр Малаховський
           </h1>
           <p
             className={`${marckScript.className} ${styles.artist_name__description}`}
