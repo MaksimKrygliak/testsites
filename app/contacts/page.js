@@ -30,34 +30,34 @@ export default function Contacts() {
   const onSubmit = async (formData) => {
     console.log(formData)
     reset()
-    // const data = {
-    //   name: formData.name,
-    //   phone: formData.phone,
-    //   email: formData.email,
-    //   textarea: formData.textarea,
-    // };
-    // const options = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // };
+    const data = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      textarea: formData.textarea,
+    };
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
 
-    // try {
-    //   const response = await fetch("http://localhost:5000/client", options);
-    //   const result = await response.json();
+    try {
+      const response = await fetch("http://localhost:5000/contact", options);
+      const result = await response.json();
 
-    //   if (response.ok) {
-    //     console.log(`User created: ${result.data.name}`);
-    //     reset();
-    //     // onOpenChange(false); // Закрытие модального окна после успешной отправки формы
-    //   } else {
-    //     alert(`Failed to create user: ${result.error}`);
-    //   }
-    // } catch (error) {
-    //   alert(`An error occurred: ${error.message}`);
-    // }
+      if (response.ok) {
+        console.log(`Лист відправлено: ${result.data.name}`);
+        reset();
+        // onOpenChange(false); // Закрытие модального окна после успешной отправки формы
+      } else {
+        alert(`Збій у відправці листа: ${result.error}`);
+      }
+    } catch (error) {
+      alert(`An error occurred: ${error.message}`);
+    }
   };
 
   return (

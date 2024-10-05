@@ -3,8 +3,6 @@
 import React from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
-import NameIcon from '../../../public/NameIcon.jsx';
-import PhoneIcon from '../../../public/PhoneIcon.jsx';
 
 export default function MainForm({ lable }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -28,7 +26,7 @@ export default function MainForm({ lable }) {
     };
   
     try {
-      const response = await fetch('http://localhost:5000/client', options);
+      const response = await fetch('http://localhost:5000/contact', options);
       const result = await response.json();
   
       if (response.ok) {
