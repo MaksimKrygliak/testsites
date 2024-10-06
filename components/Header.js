@@ -23,7 +23,6 @@ export default function Header() {
 
   const menuItems = [
     { name: "Головна", href: "/home" },
-    { name: "Портфоліо", href: "/portfolio" },
     { name: "Галерея", href: "/gallery" },
     { name: "Про мене", href: "/about" },
     { name: "Контакти", href: "/contacts" },

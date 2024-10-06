@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
-import "./globals.css";
+import "./globals.scss";
 import { NextUIProvider } from "@nextui-org/react";
+import { Analytics } from "@vercel/analytics/react";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 
@@ -30,8 +31,9 @@ export default function RootLayout({ children }) {
           // className="dark text-foreground bg-background"
           >
             {children}
+            <Analytics />
           </main>
-          {/* <Footer /> */}
+          <Footer />
         </NextUIProvider>
       </body>
     </html>

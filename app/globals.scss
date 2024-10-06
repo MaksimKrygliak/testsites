@@ -19,6 +19,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(38, 38, 38);
+
+  // display: flex;
+  // justify-content: space-between;
 }
 
 @layer utilities {
