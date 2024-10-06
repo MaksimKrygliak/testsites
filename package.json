@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export",
-    "nod": "node index.js"
+    "export": "next export"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
