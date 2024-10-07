@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 // Подключение к MongoDB
-const mongoUri = process.env.MONGODB_URI || "your-mongo-uri-here"; // Храните URI в переменной окружения
+const mongoUri = process.env.MONGODB_URI || "mongodb+srv://maksimkryglyk:Prometey888@meseges.v08jrmf.mongodb.net/meseges?retryWrites=true&w=majority&appName=meseges"; // Храните URI в переменной окружения
 
 async function connectDB() {
   if (mongoose.connection.readyState === 0) {
@@ -25,6 +25,14 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
     email: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+    textarea: {
       type: String,
       required: true,
     },
@@ -59,19 +67,19 @@ export async function POST(request) {
 }
 
 // Обработка GET запроса
-export async function GET() {
-  await connectDB(); // Подключение к базе данных
+// export async function GET() {
+//   await connectDB(); // Подключение к базе данных
 
-  try {
-    const users = await User.find(); // Получение всех пользователей
-    return new Response(JSON.stringify({ data: users }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
-  } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-}
+//   try {
+//     const users = await User.find(); // Получение всех пользователей
+//     return new Response(JSON.stringify({ data: users }), {
+//       status: 200,
+//       headers: { "Content-Type": "application/json" },
+//     });
+//   } catch (error) {
+//     return new Response(JSON.stringify({ error: error.message }), {
+//       status: 500,
+//       headers: { "Content-Type": "application/json" },
+//     });
+//   }
+// }
