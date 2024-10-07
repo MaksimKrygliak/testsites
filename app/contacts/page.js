@@ -14,21 +14,11 @@ const rubik_Wet_Paint = Rubik_Wet_Paint({
 });
 
 export default function Contacts() {
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   reset,
-  //   formState: { errors, isValid },
-  // } = useForm({
-  //   mode: "onChange", // Обновление валидности формы в реальном времени
-  // });
-
   const { register, handleSubmit, reset,  formState: { errors } } = useForm({
     mode: "onChange"
   })
   
   const onSubmit = async (formData) => {
-    // console.log(formData)
     reset()
     const data = {
       name: formData.name,
@@ -51,7 +41,6 @@ export default function Contacts() {
       if (response.ok) {
         console.log(`Лист відправлено: ${result.data.name}`);
         reset();
-        // onOpenChange(false); // Закрытие модального окна после успешной отправки формы
       } else {
         alert(`Збій у відправці листа: ${result.error}`);
       }
@@ -126,7 +115,6 @@ export default function Contacts() {
                 message: "Телефон повинен містити щонайменше 10 цифр",
               }
               })}
-              // aria-invalid={errors.Phone ? "true" : "false"}
               startContent={
                 <span>+38</span>
               }

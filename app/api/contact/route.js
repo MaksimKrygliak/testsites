@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 // Подключение к MongoDB
-const mongoUri = process.env.MONGODB_URI || "mongodb+srv://maksimkryglyk:Prometey888@meseges.v08jrmf.mongodb.net/meseges?retryWrites=true&w=majority&appName=meseges"; 
+const mongoUri = process.env.MONGODB_URI; 
 
 async function connectDB() {
   if (mongoose.connection.readyState === 0) {
