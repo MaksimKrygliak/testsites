@@ -1,10 +1,23 @@
 import mongoose from "mongoose";
 
-// Конфигурация MongoDB
-const mongoUri =
-  "mongodb+srv://maksimkryglyk:Prometey888@meseges.v08jrmf.mongodb.net/meseges?retryWrites=true&w=majority&appName=meseges";
+// Подключение к MongoDB
+const mongoUri = process.env.MONGODB_URI || "your-mongo-uri-here"; // Храните URI в переменной окружения
 
-// Модель пользователя
+async function connectDB() {
+  if (mongoose.connection.readyState === 0) {
+    try {
+      await mongoose.connect(mongoUri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      console.log("Connected to MongoDB");
+    } catch (error) {
+      console.error("MongoDB connection error:", error);
+    }
+  }
+}
+
+// Пример модели данных
 const UserSchema = new mongoose.Schema(
   {
     name: {
@@ -15,52 +28,23 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    phone: {
-      type: String,
-      required: true,
-    },
-    textarea: {
-      type: String,
-      required: true,
-    },
   },
   {
     timestamps: true,
   }
 );
 
-// Проверка, подключена ли модель
+// Создание модели или использование существующей
 const User = mongoose.models.User || mongoose.model("User", UserSchema);
 
-// Функция для подключения к MongoDB (чтобы избежать повторных подключений)
-async function connectDB() {
-  if (mongoose.connection.readyState === 0) {
-    try {
-      await mongoose.connect(mongoUri, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
-      console.log("Connected to MongoDB");
-    } catch (err) {
-      console.error("MongoDB connection error:", err);
-    }
-  }
-}
-
-// Обработка POST запроса для создания нового пользователя
+// Обработка POST запроса
 export async function POST(request) {
-  await connectDB(); // Подключаемся к MongoDB
+  await connectDB(); // Подключение к базе данных
 
   try {
-    const body = await request.json();
-    const newUser = new User({
-      name: body.name,
-      email: body.email,
-      phone: body.phone,
-      textarea: body.textarea,
-    });
-
-    await newUser.save();
+    const body = await request.json(); // Получение данных из запроса
+    const newUser = new User(body); // Создание нового пользователя
+    await newUser.save(); // Сохранение в MongoDB
 
     return new Response(JSON.stringify({ data: newUser }), {
       status: 201,
@@ -74,12 +58,12 @@ export async function POST(request) {
   }
 }
 
-// Обработка GET запроса для получения всех пользователей
+// Обработка GET запроса
 export async function GET() {
-  await connectDB(); // Подключаемся к MongoDB
+  await connectDB(); // Подключение к базе данных
 
   try {
-    const users = await User.find();
+    const users = await User.find(); // Получение всех пользователей
     return new Response(JSON.stringify({ data: users }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
