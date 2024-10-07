@@ -28,7 +28,7 @@ export default function Contacts() {
   })
   
   const onSubmit = async (formData) => {
-    console.log(formData)
+    // console.log(formData)
     reset()
     const data = {
       name: formData.name,
