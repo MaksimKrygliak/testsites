@@ -45,7 +45,7 @@ export default function Contacts() {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/contact", options);
+      const response = await fetch("/api/contact", options);
       const result = await response.json();
 
       if (response.ok) {
