@@ -36,13 +36,13 @@ export default function RootLayout({ children }) {
           <main
           // className="dark text-foreground bg-background"
           >
-            <AnimatePresence mode="wait" initial={false}>
+            <AnimatePresence>
               <motion.div
                 key={pathname} // указываем ключ для правильной анимации при смене страниц
-                initial={{ opacity: 0, x: -100 }} // начальные стили (анимация появления)
-                animate={{ opacity: 1, x: 0 }} // конечное состояние (появление)
-                exit={{ opacity: 0, x: 100 }} // состояние при уходе (анимация исчезновения)
-                transition={{ duration: 0.5 }} // длительность анимации
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, x: 0 }}
+                exist={{ opacity: 0, y: 15 }}
+                transition={{ duration: 1 }}
               >
                 {children}
               </motion.div>
