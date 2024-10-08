@@ -30,32 +30,12 @@ function Dark_side_Gallery() {
       description: "Назва картини"
     },
     {
-      src: "/gallery/dark_side/1.jpg",
+      src: "/gallery/dark_side/16_DARK SIDE 4.jpg",
       type: "image",
       description: "Назва картини"
     },
     {
-      src:  "/gallery/dark_side/2.jpg",
-      type: "image",
-      description: "Назва картини"
-    },
-    {
-      src: "/gallery/dark_side/1.jpg",
-      type: "image",
-      description: "Картина (Злив чавуну з доменної печі)"
-    },
-    {
-      src:  "/gallery/dark_side/2.jpg",
-      type: "image",
-      description: "Назва картини"
-    },
-    {
-      src: "/gallery/dark_side/1.jpg",
-      type: "image",
-      description: "Картина (Злив чавуну з доменної печі)"
-    },
-    {
-      src:  "/gallery/dark_side/2.jpg",
+      src: "/gallery/dark_side/18_DARK SIDE 2.jpg",
       type: "image",
       description: "Назва картини"
     },

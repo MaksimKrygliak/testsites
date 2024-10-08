@@ -30,32 +30,52 @@ function Industrial_Gallery() {
       description: "Картина (Сходи)"
     },
     {
-      src: "/gallery/industrial/1.jpg",
-      type: "image",
-      description: "Картина (Злив чавуну з доменної печі)"
-    },
-    {
-      src:  "/gallery/industrial/2.jpg",
+      src:  "/gallery/industrial/2_ROLLING MILL.jpg",
       type: "image",
       description: "Картина (Сходи)"
     },
     {
-      src: "/gallery/industrial/1.jpg",
-      type: "image",
-      description: "Картина (Злив чавуну з доменної печі)"
-    },
-    {
-      src:  "/gallery/industrial/2.jpg",
+      src:  "/gallery/industrial/4_FEELINGS.jpg",
       type: "image",
       description: "Картина (Сходи)"
     },
     {
-      src: "/gallery/industrial/1.jpg",
+      src:  "/gallery/industrial/5_OLD BLAST FURNACE.jpg",
       type: "image",
-      description: "Картина (Злив чавуну з доменної печі)"
+      description: "Картина (Сходи)"
     },
     {
-      src:  "/gallery/industrial/2.jpg",
+      src:  "/gallery/industrial/6_BLAST FURNACE 2.jpg",
+      type: "image",
+      description: "Картина (Сходи)"
+    },
+    {
+      src:  "/gallery/industrial/7_BLAST FURNACE 4 (2).jpg",
+      type: "image",
+      description: "Картина (Сходи)"
+    },
+    {
+      src:  "/gallery/industrial/8_IRON HEART (2).jpg",
+      type: "image",
+      description: "Картина (Сходи)"
+    },
+    {
+      src:  "/gallery/industrial/9_IRON HEART (1).jpg",
+      type: "image",
+      description: "Картина (Сходи)"
+    },
+    {
+      src:  "/gallery/industrial/10_BLAST FURNACE 4 (1).jpg",
+      type: "image",
+      description: "Картина (Сходи)"
+    },
+    {
+      src:  "/gallery/industrial/11_Spectrum.jpg",
+      type: "image",
+      description: "Картина (Сходи)"
+    },
+    {
+      src:  "/gallery/industrial/12_Emerald city.jpg",
       type: "image",
       description: "Картина (Сходи)"
     },

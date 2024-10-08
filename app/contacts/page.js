@@ -17,9 +17,8 @@ export default function Contacts() {
   const { register, handleSubmit, reset,  formState: { errors } } = useForm({
     mode: "onChange"
   })
-  
+
   const onSubmit = async (formData) => {
-    reset()
     const data = {
       name: formData.name,
       email: formData.email,
@@ -33,21 +32,53 @@ export default function Contacts() {
       },
       body: JSON.stringify(data),
     };
-
+  
     try {
-      const response = await fetch("/api/contact", options);
+      const response = await fetch("/api/contact", options); // Теперь запрос идет на API route
       const result = await response.json();
-
+  
       if (response.ok) {
-        console.log(`Лист відправлено: ${result.data.name}`);
+        console.log(`Письмо отправлено: ${result.message}`);
         reset();
       } else {
-        alert(`Збій у відправці листа: ${result.error}`);
+        alert(`Ошибка отправки письма: ${result.error}`);
       }
     } catch (error) {
-      alert(`An error occurred: ${error.message}`);
+      alert(`Произошла ошибка: ${error.message}`);
     }
   };
+  
+  
+  // const onSubmit = async (formData) => {
+  //   reset()
+  //   const data = {
+  //     name: formData.name,
+  //     email: formData.email,
+  //     phone: formData.phone,
+  //     textarea: formData.textarea,
+  //   };
+  //   const options = {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   };
+
+  //   try {
+  //     const response = await fetch("/api/contact", options);
+  //     const result = await response.json();
+
+  //     if (response.ok) {
+  //       console.log(`Лист відправлено: ${result.data.name}`);
+  //       reset();
+  //     } else {
+  //       alert(`Збій у відправці листа: ${result.error}`);
+  //     }
+  //   } catch (error) {
+  //     alert(`An error occurred: ${error.message}`);
+  //   }
+  // };
 
   return (
     <>
