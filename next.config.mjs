@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // output: 'export',  // Добавляем опцию для статического экспорта
-  };
+  reactStrictMode: false, // Отключаем React Strict Mode для предотвращения двойного рендеринга
+};
   
   export default nextConfig;
