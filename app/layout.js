@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import localFont from "next/font/local";
 import "./globals.scss";
@@ -33,22 +33,22 @@ export default function RootLayout({ children }) {
       <body>
         <NextUIProvider>
           <Header />
-          <AnimatePresence mode="wait">
-            <motion.div
-              // key={pathname} // указываем ключ для правильной анимации при смене страниц
-              initial={{ opacity: 0, x: -100 }} // начальные стили (анимация появления)
-              animate={{ opacity: 1, x: 0 }} // конечное состояние (появление)
-              exit={{ opacity: 0, x: 100 }} // состояние при уходе (анимация исчезновения)
-              transition={{ duration: 0.5 }} // длительность анимации
-            >
-              <main
-              // className="dark text-foreground bg-background"
+          <main
+          // className="dark text-foreground bg-background"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={pathname} // указываем ключ для правильной анимации при смене страниц
+                initial={{ opacity: 0, x: -100 }} // начальные стили (анимация появления)
+                animate={{ opacity: 1, x: 0 }} // конечное состояние (появление)
+                exit={{ opacity: 0, x: 100 }} // состояние при уходе (анимация исчезновения)
+                transition={{ duration: 0.5 }} // длительность анимации
               >
                 {children}
-                <Analytics />
-              </main>
-            </motion.div>
-          </AnimatePresence>
+              </motion.div>
+            </AnimatePresence>
+            <Analytics />
+          </main>
           <Footer />
         </NextUIProvider>
       </body>
