@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import Link from "next/link";
 import { Rubik_Wet_Paint } from "next/font/google";
@@ -12,6 +12,8 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
+import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const rubik_Wet_Paint = Rubik_Wet_Paint({
   weight: "400",
@@ -33,27 +35,43 @@ export default function Header() {
   };
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen} className={`${rubik_Wet_Paint.className} ${styles.header}`}>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      isMenuOpen={isMenuOpen}
+      className={`${rubik_Wet_Paint.className} ${styles.header}`}
+    >
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="header_benu_btn sm:hidden"
         />
         <NavbarBrand>
-          <Link href="./home" color="foreground" className="font-bold text-inherit">LOGO</Link>
+          <Link
+            href="./home"
+            color="foreground"
+            className="font-bold text-inherit"
+          >
+            LOGO
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {menuItems.map((item, index) => (
           <NavbarItem key={index}>
-            <Link color="foreground" href={item.href} className="text-xl lg:text-lg">
-              {item.name}
-            </Link>
+            <motion.div whileHover={{ scale: 1.1 }}>
+              <Link
+                color="foreground"
+                href={item.href}
+                className="text-xl lg:text-lg"
+              >
+                {item.name}
+              </Link>
+            </motion.div>
           </NavbarItem>
         ))}
       </NavbarContent>
-      
+
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={index}>

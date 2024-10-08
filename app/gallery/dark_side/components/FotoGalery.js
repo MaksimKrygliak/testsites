@@ -15,7 +15,7 @@ import styles from "../dark_side.module.scss";
 
 function Dark_side_Gallery() {
   const onInit = () => {
-    console.log("lightGallery has been initialized");
+    // console.log("lightGallery has been initialized");
   };
 
   const items = [
