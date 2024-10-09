@@ -14,9 +14,14 @@ const rubik_Wet_Paint = Rubik_Wet_Paint({
 });
 
 export default function Contacts() {
-  const { register, handleSubmit, reset,  formState: { errors } } = useForm({
-    mode: "onChange"
-  })
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    mode: "onChange",
+  });
 
   const onSubmit = async (formData) => {
     const data = {
@@ -32,11 +37,11 @@ export default function Contacts() {
       },
       body: JSON.stringify(data),
     };
-  
+
     try {
       const response = await fetch("/api/contact", options); // Теперь запрос идет на API route
       const result = await response.json();
-  
+
       if (response.ok) {
         console.log(`Письмо отправлено: ${result.message}`);
         reset();
@@ -47,38 +52,6 @@ export default function Contacts() {
       alert(`Произошла ошибка: ${error.message}`);
     }
   };
-  
-  
-  // const onSubmit = async (formData) => {
-  //   reset()
-  //   const data = {
-  //     name: formData.name,
-  //     email: formData.email,
-  //     phone: formData.phone,
-  //     textarea: formData.textarea,
-  //   };
-  //   const options = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(data),
-  //   };
-
-  //   try {
-  //     const response = await fetch("/api/contact", options);
-  //     const result = await response.json();
-
-  //     if (response.ok) {
-  //       console.log(`Лист відправлено: ${result.data.name}`);
-  //       reset();
-  //     } else {
-  //       alert(`Збій у відправці листа: ${result.error}`);
-  //     }
-  //   } catch (error) {
-  //     alert(`An error occurred: ${error.message}`);
-  //   }
-  // };
 
   return (
     <>
@@ -87,6 +60,7 @@ export default function Contacts() {
           <h2 className={styles.input_box__header}>Зв'язатися зі мною</h2>
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <Input
+              className={styles.input_name}
               {...register("name", {
                 required: "Обов'язкове поле",
                 pattern: {
@@ -105,12 +79,19 @@ export default function Contacts() {
               placeholder="Enter your Name"
               variant="bordered"
             />
-            {errors.name && <p style={{
-              color: "red",
-              textAlign: "left"
-            }}>{errors.name.message}</p>}
+            {errors.name && (
+              <p
+                style={{
+                  color: "red",
+                  textAlign: "left",
+                }}
+              >
+                {errors.name.message}
+              </p>
+            )}
 
             <Input
+              className={styles.input_email}
               {...register("email", {
                 // required: "Обов'язкове поле",
                 pattern: {
@@ -125,42 +106,54 @@ export default function Contacts() {
               placeholder="Enter your email"
               variant="bordered"
             />
-            {errors.email && <p style={{
-              color: "red",
-              textAlign: "left"
-            }}>{errors.email.message}</p>}
+            {errors.email && (
+              <p
+                style={{
+                  color: "red",
+                  textAlign: "left",
+                }}
+              >
+                {errors.email.message}
+              </p>
+            )}
 
             <Input
+              className={styles.input_phone}
               {...register("phone", {
                 // required: "Обов'язкове поле",
                 pattern: {
                   value: /^[0-9]+$/,
                   message: "Номер телефона повинен містити лише цифри",
                 },
-              maxLength: {
-                value: 13,
-                message: "Телефон не повинен бути більшим за 13 цифр",
-              },
-              minLength: {
-                value: 10, 
-                message: "Телефон повинен містити щонайменше 10 цифр",
-              }
+                maxLength: {
+                  value: 13,
+                  message: "Телефон не повинен бути більшим за 13 цифр",
+                },
+                minLength: {
+                  value: 10,
+                  message: "Телефон повинен містити щонайменше 10 цифр",
+                },
               })}
-              startContent={
-                <span>+38</span>
-              }
+              startContent={<span>+38</span>}
               label="Phone"
               placeholder="(___) __-__-___"
               defaultValue=""
               // type="tel"
               variant="bordered"
             />
-            {errors.phone && <p style={{
-              color: "red",
-              textAlign: "left"
-            }}>{errors.phone.message}</p>}
+            {errors.phone && (
+              <p
+                style={{
+                  color: "red",
+                  textAlign: "left",
+                }}
+              >
+                {errors.phone.message}
+              </p>
+            )}
 
             <Textarea
+              className={styles.input_textarea}
               {...register("textarea", {
                 // required: "Обов'язкове поле",
                 pattern: {
@@ -175,7 +168,7 @@ export default function Contacts() {
               labelPlacement="inside"
               variant="bordered"
               placeholder="Enter your description"
-              className="col-span-12 md:col-span-6 mb-6 md:mb-0"
+              // className="col-span-12 md:col-span-6 mb-6 md:mb-0"
             />
             <Button
               type="submit"
@@ -190,134 +183,3 @@ export default function Contacts() {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// MainForm.js
-// "use client";
-
-// import React from "react";
-// import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input } from "@nextui-org/react";
-// import { useForm } from "react-hook-form";
-// import NameIcon from '../../../public/NameIcon.jsx';
-// import PhoneIcon from '../../../public/PhoneIcon.jsx';
-
-// export default function MainForm({ lable }) {
-//   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
-//   const { register, handleSubmit, reset, formState: { errors, isValid } } = useForm({
-//     mode: "onChange" // Обновление валидности формы в реальном времени
-//   });
-
-//   const onSubmit = async (formData) => {
-//     const data = {
-//       name: formData.Name,
-//       phone: formData.Phone,
-//       category: lable,
-//     };
-//     const options = {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(data),
-//     };
-  
-//     try {
-//       const response = await fetch('http://localhost:5000/client', options);
-//       const result = await response.json();
-  
-//       if (response.ok) {
-//         console.log(`User created: ${result.data.name}`);
-//         reset();
-//         onOpenChange(false); // Закрытие модального окна после успешной отправки формы
-//       } else {
-//         alert(`Failed to create user: ${result.error}`);
-//       }
-//     } catch (error) {
-//       alert(`An error occurred: ${error.message}`);
-//     }
-//   };
-
-
-//   return (
-//     <>
-//       <Button onPress={onOpen} color="warning" className="mx-auto text-color-white w-[150px]">Тисни щоб записатися</Button>
-//       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
-//         <ModalContent>
-//           {(onClose) => (
-//             <form onSubmit={handleSubmit(onSubmit)}>
-//               <ModalHeader className="flex flex-col gap-1">{lable}</ModalHeader>
-//               <ModalBody>
-//                 <Input
-//                   {...register("Name", {
-//                     required: "Обов'язкове поле",
-//                     pattern: {
-//                       value: /^[А-Яа-яЁёҐґІіЇїЄєA-Za-z]+$/,
-//                       message: "Ім'я повинно бути без цифр"
-//                     },
-//                     maxLength: 10,
-//                     minLength: 2
-//                   })}
-//                   aria-invalid={errors.Name ? "true" : "false"}
-//                   autoFocus
-//                   endContent={
-//                     <NameIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-//                   }
-//                   label="Name"
-//                   placeholder="Enter your Name"
-//                   variant="bordered"
-//                 />
-//                 {errors.Name && <p role="alert">{errors.Name.message}</p>}
-
-//                 <Input
-//                   {...register("Phone", {
-//                     required: "Обов'язкове поле",
-//                     pattern: {
-//                       value: /^[0-9]+$/,
-//                       message: "Номер телефона должен содержать только цифры"
-//                     },
-//                     maxLength: 13,
-//                     minLength: 10
-//                   })}
-//                   aria-invalid={errors.Phone ? "true" : "false"}
-//                   endContent={
-//                     <PhoneIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-//                   }
-//                   label="Phone"
-//                   placeholder="+380 (___) __-__-___"
-//                   defaultValue="0981540120"
-//                   type="tel"
-//                   variant="bordered"
-//                 />
-//                 {errors.Phone && <p role="alert">{errors.Phone.message}</p>}
-//               </ModalBody>
-//               <ModalFooter>
-//                 <Button color="danger" variant="flat" onPress={onClose}>
-//                   Відмінити
-//                 </Button>
-//                 <Button
-//                   type="submit"
-//                   color="warning"
-//                   disabled={!isValid} // Блокировка кнопки, если форма не валидна
-//                 >
-//                   Записатись
-//                 </Button>
-//               </ModalFooter>
-//             </form>
-//           )}
-//         </ModalContent>
-//       </Modal>
-//     </>
-//   );
-// }

@@ -11,32 +11,31 @@
     margin: 0 auto;
     max-width: 500px;
     border-radius: 10px;
-    color: rgb(121, 121, 121);
     background-color: rgb(48, 48, 48);
 
     .input_box__header {
-        font-size: 25px;
-        width: 100%;
-        text-align: center;
-        padding: 2%;
-      }
+      font-size: 25px;
+      width: 100%;
+      text-align: center;
+      padding: 2%;
+    }
 
     .form {
       display: flex;
-      // flex: 1 1 400px;
       flex-direction: column;
       justify-content: space-between;
       padding: 5%;
-      // height: 400px;
-      
-      *{
+
+      >* {
         margin: 5px 0;
       }
 
-      .button {
-        border-radius: 10px;
-        color: black;
-        background-color: rgb(88, 204, 30);
+      label{
+        color: var(--fontform_lable-color);
+      }
+
+      *::placeholder{
+        color: var(--font-color);
       }
     }
   }

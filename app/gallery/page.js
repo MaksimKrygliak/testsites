@@ -10,23 +10,27 @@ import portraits from "../../public/gallery/portraits.jpg";
 
 // Анимации для каждого изображения
 const imageVariants = {
-  hiddenLeft: { opacity: 0, x: -100 },   // Появление слева
-  hiddenRight: { opacity: 0, x: 100 },   // Появление справа
-  hiddenTop: { opacity: 0, y: -100 },    // Появление сверху
-  visible: { opacity: 1, x: 0, y: 0 },   // Конечное состояние
+  hiddenLeft: { opacity: 0, x: -200 }, // Появление слева
+  hiddenRight: { opacity: 0, x: 200 }, // Появление справа
+  hiddenTop: { opacity: 0, y: -200 }, // Появление сверху
+  visible: { opacity: 1, x: 0, y: 0 }, // Конечное состояние
 };
 
 export default function Gallery() {
   return (
     <section className={styles.type_pictures}>
-      {/* Первое изображение - выезжает слева */}
-      <Link className={styles.link} href="/gallery/dark_side" color="foreground">
-        <motion.div
-          className={styles.image_box}
-          initial="hiddenLeft"
-          animate="visible"
-          transition={{ duration: 0.5 }} // Длительность анимации
-          variants={imageVariants}
+      {/* Первое изображение*/}
+      <motion.div
+        className={styles.image_box}
+        initial="hiddenLeft"
+        animate="visible"
+        transition={{ duration: 0.5 }} // Длительность анимации
+        variants={imageVariants}
+      >
+        <Link
+          className={styles.link}
+          href="/gallery/dark_side"
+          color="foreground"
         >
           <Image
             className={styles.image}
@@ -36,18 +40,30 @@ export default function Gallery() {
             quality={50}
             loading="lazy"
           />
-        </motion.div>
-        <h2 className={styles.name}>dark_side</h2>
-      </Link>
+          <motion.h2
+            className={styles.name}
+            initial="hiddenTop"
+            animate="visible"
+            transition={{ duration: 0.5, delay: 0.5 }}
+            variants={imageVariants}
+          >
+            Dark side
+          </motion.h2>
+        </Link>
+      </motion.div>
 
-      {/* Второе изображение - выезжает справа */}
-      <Link className={styles.link} href="/gallery/industrial" color="foreground">
-        <motion.div
-          className={styles.image_box}
-          initial="hiddenRight"
-          animate="visible"
-          transition={{ duration: 0.5 }}
-          variants={imageVariants}
+      {/* Второе изображение*/}
+      <motion.div
+        className={styles.image_box}
+        initial="hiddenTop"
+        animate="visible"
+        transition={{ duration: 0.5 }}
+        variants={imageVariants}
+      >
+        <Link
+          className={styles.link}
+          href="/gallery/industrial"
+          color="foreground"
         >
           <Image
             className={styles.image}
@@ -58,18 +74,30 @@ export default function Gallery() {
             loading="lazy"
             style={{ objectFit: "contain" }}
           />
-        </motion.div>
-        <h2 className={styles.name}>industrial</h2>
-      </Link>
+          <motion.h2
+            className={styles.name}
+            initial="hiddenTop"
+            animate="visible"
+            transition={{ duration: 0.5, delay: 0.5 }}
+            variants={imageVariants}
+          >
+            Industrial
+          </motion.h2>
+        </Link>
+      </motion.div>
 
-      {/* Третье изображение - выезжает сверху */}
-      <Link className={styles.link} href="/gallery/portraits" color="foreground">
-        <motion.div
-          className={styles.image_box}
-          initial="hiddenTop"
-          animate="visible"
-          transition={{ duration: 0.5 }}
-          variants={imageVariants}
+      {/* Третье изображение*/}
+      <motion.div
+        className={styles.image_box}
+        initial="hiddenRight"
+        animate="visible"
+        transition={{ duration: 0.5 }}
+        variants={imageVariants}
+      >
+        <Link
+          className={styles.link}
+          href="/gallery/portraits"
+          color="foreground"
         >
           <Image
             className={styles.image}
@@ -80,9 +108,17 @@ export default function Gallery() {
             loading="lazy"
             style={{ objectFit: "contain" }}
           />
-        </motion.div>
-        <h2 className={styles.name}>portraits</h2>
-      </Link>
+          <motion.h2
+            className={styles.name}
+            initial="hiddenTop"
+            animate="visible"
+            transition={{ duration: 0.5, delay: 0.5 }}
+            variants={imageVariants}
+          >
+            Portraits
+          </motion.h2>
+        </Link>
+      </motion.div>
     </section>
   );
 }

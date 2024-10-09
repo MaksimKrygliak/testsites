@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
           >
             <AnimatePresence>
               <motion.div
-                key={pathname} // указываем ключ для правильной анимации при смене страниц
+                key={pathname}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, x: 0 }}
                 exist={{ opacity: 0, y: 15 }}

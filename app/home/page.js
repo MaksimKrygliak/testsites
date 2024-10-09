@@ -2,8 +2,18 @@
 import React from "react";
 import Image from "next/image";
 import { Marck_Script } from "next/font/google";
-import mainImage from "../../public/images/mainPhoto.jpg";
+import mainImage from "../../public/images/mainPhoto2.png";
 import styles from "./home.module.scss";
+import { motion } from "framer-motion";
+
+// Анимации для каждого изображения
+const imageVariants = {
+  hiddenLeft: { opacity: 0, x: -200 }, // Появление слева
+  hiddenRight: { opacity: 0, x: 200 }, // Появление справа
+  hiddenTop: { opacity: 0, y: -200 }, // Появление сверху
+  hiddenDown: { opacity: 0, y: 200 }, // Появление снизу
+  visible: { opacity: 1, x: 0, y: 0 }, // Конечное состояние
+};
 
 const marckScript = Marck_Script({
   weight: "400",
@@ -20,7 +30,13 @@ export default function Home() {
   return (
     <>
       <section className={styles.main_block}>
-        <div className={styles.image_box}>
+        <motion.div
+          className={styles.image_box}
+          initial="hiddenLeft"
+          animate="visible"
+          transition={{ duration: 0.5 }}
+          variants={imageVariants}
+        >
           <Image
             className={styles.image}
             alt="mainImage"
@@ -29,13 +45,23 @@ export default function Home() {
             quality={100}
             loading="lazy"
           />
-        </div>
+        </motion.div>
         <div className={styles.main_block_description}>
-          <h1 className={`${marckScript.className} ${styles.artist_name}`}>
-            Олександр Малаховський
-          </h1>
-          <p
+          <motion.div
+            className={`${marckScript.className} ${styles.artist_name}`}
+            initial="hiddenTop"
+            animate="visible"
+            transition={{ duration: 0.5, delay:0}}
+            variants={imageVariants}
+          >
+            <h1>Олександр Малаховський</h1>
+          </motion.div>
+          <motion.p
             className={`${marckScript.className} ${styles.artist_name__description}`}
+            initial="hiddenDown"
+            animate="visible"
+            transition={{ duration: 0.5, delay:0.5}}
+            variants={imageVariants}
           >
             Визначення нашої власної реальності - це глибоко особистий і
             суб'єктивний досвід. Хоча ми ніколи не зможемо знати все, ми можемо
@@ -44,7 +70,21 @@ export default function Home() {
             навколишнього світу. Вчиняючи так, ми можемо створити більше
             інклюзивну та різноманітну реальність, яка відображає багатство та
             складність людського досвіду
-            <span className={styles.icon_wrapper}>
+            <motion.span
+              className={styles.icon_wrapper}
+              initial="hiddenRight"
+              animate="visible"
+              transition={{ duration: 0.5, delay:1}}
+
+
+
+              // transition: {
+              //   duration: 1, // Длительность анимации
+              //   ease: [0.4, 0, 0.2, 1], // Плавность анимации
+              //   delay: 0.5, // Задержка анимации на 0.5 секунд
+              // },
+              variants={imageVariants}
+            >
               <Image
                 className="pero"
                 alt="pero"
@@ -60,8 +100,8 @@ export default function Home() {
                 width={50}
                 height={50}
               />
-            </span>
-          </p>
+            </motion.span>
+          </motion.p>
         </div>
       </section>
     </>
