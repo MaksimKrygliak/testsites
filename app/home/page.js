@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { Marck_Script } from "next/font/google";
-import mainImage from "../../public/images/mainPhoto2.png";
+// import { Marck_Script } from "next/font/google";
+import mainImage from "../../public/images/mainPhoto.jpg";
 import styles from "./home.module.scss";
 import { motion } from "framer-motion";
+import { useRouter } from 'next/router';
 
 // Анимации для каждого изображения
 const imageVariants = {
@@ -15,10 +16,10 @@ const imageVariants = {
   visible: { opacity: 1, x: 0, y: 0 }, // Конечное состояние
 };
 
-const marckScript = Marck_Script({
-  weight: "400",
-  subsets: ["latin", "cyrillic"],
-});
+// const marckScript = Marck_Script({
+//   weight: "400",
+//   subsets: ["latin", "cyrillic"],
+// });
 
 export default function Home() {
   // const fetchData = async () => {
@@ -27,6 +28,12 @@ export default function Home() {
   //    return data
   // }
   // console.log(fetchData());
+  const { locale } = useRouter();
+  
+  const translations = {
+    en: { title: 'Олександр Малаховський' },
+    ru: { title: 'Oleksandr Malakhovskyi' },
+  };
   return (
     <>
       <section className={styles.main_block}>
@@ -48,19 +55,21 @@ export default function Home() {
         </motion.div>
         <div className={styles.main_block_description}>
           <motion.div
-            className={`${marckScript.className} ${styles.artist_name}`}
+            // className={`${marckScript.className} ${styles.artist_name}`}
+            className={styles.artist_name}
             initial="hiddenTop"
             animate="visible"
-            transition={{ duration: 0.5, delay:0}}
+            transition={{ duration: 0.5, delay: 0 }}
             variants={imageVariants}
           >
-            <h1>Олександр Малаховський</h1>
+            <h1>{translations[locale].title}</h1>
           </motion.div>
           <motion.p
-            className={`${marckScript.className} ${styles.artist_name__description}`}
+            // className={`${marckScript.className} ${styles.artist_name__description}`}
+            className={styles.artist_name__description}
             initial="hiddenDown"
             animate="visible"
-            transition={{ duration: 0.5, delay:0.5}}
+            transition={{ duration: 0.5, delay: 0.5 }}
             variants={imageVariants}
           >
             Визначення нашої власної реальності - це глибоко особистий і
@@ -74,10 +83,7 @@ export default function Home() {
               className={styles.icon_wrapper}
               initial="hiddenRight"
               animate="visible"
-              transition={{ duration: 0.5, delay:1}}
-
-
-
+              transition={{ duration: 0.5, delay: 1 }}
               // transition: {
               //   duration: 1, // Длительность анимации
               //   ease: [0.4, 0, 0.2, 1], // Плавность анимации

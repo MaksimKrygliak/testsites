@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #212121;
-  --font-color: #906e29;
+  --background: #f4f9ff;
+  // --font-color: #FFF0E0;
+  --font-color: #000000;
   --fontform_lable-color: #624b1b;
   // --font-color: #8a6c45;
 }
@@ -12,6 +13,7 @@
 body {
   color: var(--font-color);
   background-color: var(--background);
+  font-family: 'Bahnschrift', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,4 +27,11 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@font-face {
+  font-family: 'Bahnschrift';
+  src: url('/fonts/bahnschrift.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

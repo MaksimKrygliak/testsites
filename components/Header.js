@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Rubik_Wet_Paint } from "next/font/google";
+// import { Rubik_Wet_Paint } from "next/font/google";
 import styles from "./styles/header.module.scss";
 import {
   Navbar,
@@ -15,10 +15,10 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 
-const rubik_Wet_Paint = Rubik_Wet_Paint({
-  weight: "400",
-  subsets: ["latin", "cyrillic"],
-});
+// const rubik_Wet_Paint = Rubik_Wet_Paint({
+//   weight: "400",
+//   subsets: ["latin", "cyrillic"],
+// });
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -38,7 +38,8 @@ export default function Header() {
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
-      className={`${rubik_Wet_Paint.className} ${styles.header}`}
+      // className={`${rubik_Wet_Paint.className} ${styles.header}`}
+      className={styles.header}
     >
       <NavbarContent>
         <NavbarMenuToggle

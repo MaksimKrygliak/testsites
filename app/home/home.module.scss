@@ -16,6 +16,7 @@
     max-width: 350px;
     flex: 1 1 300px;
     margin: 0 auto;
+    background-color: #FFF0E0;
   }
 
   .main_block_description {
@@ -23,6 +24,9 @@
     flex-basis: 400px;
     min-width: 200px;
     flex-grow: 1;
+    padding: 100px;
+    border-radius: 5px;
+    background-color: #FFF0E0;
 
     .artist_name {
       font-size: 2.5rem;
