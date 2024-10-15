@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+// import { Rubik_Wet_Paint } from "next/font/google";
 import styles from "./styles/header.module.scss";
 import {
   Navbar,
@@ -12,18 +13,18 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 
-import i18n from 'i18next';
-
-const changeLanguage = (lng) => {
-  i18n.changeLanguage(lng); // Изменение языка
-};
+// const rubik_Wet_Paint = Rubik_Wet_Paint({
+//   weight: "400",
+//   subsets: ["latin", "cyrillic"],
+// });
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    { name: "Головнааа", href: "/home" },
+    { name: "Головна", href: "/home" },
     { name: "Галерея", href: "/gallery" },
     { name: "Про мене", href: "/about" },
     { name: "Контакти", href: "/contacts" },
@@ -37,6 +38,7 @@ export default function Header() {
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
+      // className={`${rubik_Wet_Paint.className} ${styles.header}`}
       className={styles.header}
     >
       <NavbarContent>
@@ -70,8 +72,7 @@ export default function Header() {
           </NavbarItem>
         ))}
       </NavbarContent>
-      <button onClick={() => changeLanguage("uk")}>Українська</button>
-      <button onClick={() => changeLanguage("en")}>English</button>
+
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={index}>

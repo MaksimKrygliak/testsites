@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+// import { Marck_Script } from "next/font/google";
 import mainImage from "../../public/images/mainPhoto.jpg";
 import styles from "./home.module.scss";
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
 
 // Анимации для каждого изображения
 const imageVariants = {
@@ -15,8 +15,18 @@ const imageVariants = {
   visible: { opacity: 1, x: 0, y: 0 }, // Конечное состояние
 };
 
+// const marckScript = Marck_Script({
+//   weight: "400",
+//   subsets: ["latin", "cyrillic"],
+// });
+
 export default function Home() {
-  const { t, i18n } = useTranslation();
+  // const fetchData = async () => {
+  //    const response = await fetch("http://localhost:5000/client/reviews");
+  //    const data = await response.json()
+  //    return data
+  // }
+  // console.log(fetchData());
   return (
     <>
       <section className={styles.main_block}>
@@ -38,22 +48,30 @@ export default function Home() {
         </motion.div>
         <div className={styles.main_block_description}>
           <motion.div
+            // className={`${marckScript.className} ${styles.artist_name}`}
             className={styles.artist_name}
             initial="hiddenTop"
             animate="visible"
             transition={{ duration: 0.5, delay: 0 }}
             variants={imageVariants}
           >
-            <h1>{t("Name_Artist")}</h1>
+            <h1>Олександр Малаховський</h1>
           </motion.div>
           <motion.p
+            // className={`${marckScript.className} ${styles.artist_name__description}`}
             className={styles.artist_name__description}
             initial="hiddenDown"
             animate="visible"
             transition={{ duration: 0.5, delay: 0.5 }}
             variants={imageVariants}
           >
-            {t("artist_name__description")}
+            Визначення нашої власної реальності - це глибоко особистий і
+            суб'єктивний досвід. Хоча ми ніколи не зможемо знати все, ми можемо
+            прагнути бути відкритими для нових ідей та перспектив, та шукати
+            знання та досвід, які кидають виклик та розширюють наше розуміння
+            навколишнього світу. Вчиняючи так, ми можемо створити більше
+            інклюзивну та різноманітну реальність, яка відображає багатство та
+            складність людського досвіду
             <motion.span
               className={styles.icon_wrapper}
               initial="hiddenRight"
@@ -88,3 +106,17 @@ export default function Home() {
     </>
   );
 }
+
+// <Image
+//   className="img"
+//   alt="error"
+//   src={mainImage}
+//   placeholder="blur"
+//   quality={100}
+//   fill
+//   sizes="100vw"
+//   style={{
+//     objectFit: "cover",
+//     objectPosition: "top",
+//   }}
+// />;
