@@ -23,7 +23,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    { name: "Головна", href: "/home" },
+    { name: "Головнааа", href: "/home" },
     { name: "Галерея", href: "/gallery" },
     { name: "Про мене", href: "/about" },
     { name: "Контакти", href: "/contacts" },
