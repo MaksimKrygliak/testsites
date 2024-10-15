@@ -69,6 +69,8 @@ export default function Header() {
             </motion.div>
           </NavbarItem>
         ))}
+        <button onClick={() => changeLanguage("uk")}>Укр</button>
+        <button onClick={() => changeLanguage("en")}>Eng</button>
       </NavbarContent>
 
       <NavbarMenu>
