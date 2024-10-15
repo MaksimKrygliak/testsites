@@ -13,7 +13,7 @@ import {
 } from "@nextui-org/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import i18n from 'i18next';
+import i18n from "i18next";
 
 const changeLanguage = (lng) => {
   i18n.changeLanguage(lng); // Изменение языка
@@ -70,8 +70,7 @@ export default function Header() {
           </NavbarItem>
         ))}
       </NavbarContent>
-      <button onClick={() => changeLanguage("uk")}>Українська</button>
-      <button onClick={() => changeLanguage("en")}>English</button>
+
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={index}>
@@ -85,6 +84,8 @@ export default function Header() {
             </Link>
           </NavbarMenuItem>
         ))}
+        <button onClick={() => changeLanguage("uk")}>Укр</button>
+        <button onClick={() => changeLanguage("en")}>Eng</button>
       </NavbarMenu>
     </Navbar>
   );
