@@ -55,7 +55,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0 }}
             variants={imageVariants}
           >
-            <h1>Олександр Малаховськиййййй</h1>
+            <h1>Олександр Малаховський</h1>
           </motion.div>
           <motion.p
             // className={`${marckScript.className} ${styles.artist_name__description}`}
