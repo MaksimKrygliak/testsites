@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   i18n: {
-    locales: ['en', 'ru'], // Укажите поддерживаемые локали
-    defaultLocale: 'ru',   // Локаль по умолчанию
+    locales: ["uk", "en"], // Поддерживаемые языки: украинский и английский
+    defaultLocale: "uk", // Язык по умолчанию - украинский
+    localeDetection: false, // Отключение автоматического определения и добавления языкового префикса
   },
 };
   
