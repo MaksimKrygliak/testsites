@@ -1,11 +1,7 @@
 "use client";
 
 import React from "react";
-import { Input } from "@nextui-org/react";
-import { Textarea } from "@nextui-org/react";
-import { Button } from "@nextui-org/react";
-import { useForm } from "react-hook-form";
-import styles from "./contacts.module.scss";
+import styles from "./events.module.scss";
 
 export default function Events() {
 
