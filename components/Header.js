@@ -14,19 +14,20 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 import i18n from "i18next";
+import { useTranslation } from "react-i18next";
 
 const changeLanguage = (lng) => {
   i18n.changeLanguage(lng); // Изменение языка
 };
 
 export default function Header() {
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    { name: "Головнааа", href: "/home" },
-    { name: "Галерея", href: "/gallery" },
-    { name: "Про мене", href: "/about" },
-    { name: "Контакти", href: "/contacts" },
+    { name: t("page_home"), href: "/home" },
+    { name: t("page_gallery"), href: "/gallery" },
+    { name: t("page_events"), href: "/events" },
   ];
 
   const handleMenuItemClick = () => {

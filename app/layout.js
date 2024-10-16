@@ -6,7 +6,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "../components/Header";
 import Footer from "../components/footer";
-// import { useTranslation } from 'react-i18next'; // импортируем useTranslation
+
 import { I18nextProvider } from "react-i18next";
 import i18n from "../i18n"; // Импортируем экземпляр i18n
 

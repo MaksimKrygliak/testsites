@@ -25,6 +25,11 @@ export default function Home() {
           initial="hiddenLeft"
           animate="visible"
           transition={{ duration: 0.5 }}
+          // transition: {
+          //   duration: 1, // Длительность анимации
+          //   ease: [0.4, 0, 0.2, 1], // Плавность анимации
+          //   delay: 0.5, // Задержка анимации на 0.5 секунд
+          // },
           variants={imageVariants}
         >
           <Image
@@ -37,15 +42,20 @@ export default function Home() {
           />
         </motion.div>
         <div className={styles.main_block_description}>
-          <motion.div
+          <motion.h1
             className={styles.artist_name}
             initial="hiddenTop"
             animate="visible"
             transition={{ duration: 0.5, delay: 0 }}
+            // transition: {
+            //   duration: 1, // Длительность анимации
+            //   ease: [0.4, 0, 0.2, 1], // Плавность анимации
+            //   delay: 0.5, // Задержка анимации на 0.5 секунд
+            // },
             variants={imageVariants}
           >
-            <h1>{t("Name_Artist")}</h1>
-          </motion.div>
+            {t("Name_Artist")}
+          </motion.h1>
           <motion.p
             className={styles.artist_name__description}
             initial="hiddenDown"
