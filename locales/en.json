@@ -1,4 +1,13 @@
 {
-    "Name_Artist": "Oleksandr Malakhovskyi",
-    "artist_name__description": "Defining our own reality is a deeply personal and subjective experience. Although we can never know everything, we can strive to be open to new ideas and perspectives, and seek knowledge and experiences that challenge and expand our understanding of the world around us. By doing so, we can create a more inclusive and diverse reality that reflects the richness and complexity of the human experience"
-  }
+  "page_home": "Home",
+  "page_gallery": "Gallery",
+  "page_about": "About",
+  "page_events": "Events",
+  
+  "Name_Artist": "Oleksandr Malakhovskyi",
+  "artist_name__description": "Defining our own reality is a deeply personal and subjective experience. Although we can never know everything, we can strive to be open to new ideas and perspectives, and seek knowledge and experiences that challenge and expand our understanding of the world around us. By doing so, we can create a more inclusive and diverse reality that reflects the richness and complexity of the human experience",
+      
+  "gallery_dark_side": "Dark_side",
+  "gallery_industrial": "Industrial",
+  "gallery_portraits": "Portraits"
+}

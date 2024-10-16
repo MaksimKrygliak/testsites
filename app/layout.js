@@ -10,6 +10,9 @@ import Footer from "../components/footer";
 import { I18nextProvider } from "react-i18next";
 import i18n from "../i18n"; // Импортируем экземпляр i18n
 
+import { I18nextProvider } from "react-i18next";
+import i18n from "../i18n"; // Импортируем экземпляр i18n
+
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 

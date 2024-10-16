@@ -8,6 +8,9 @@ import dark_side from "../../public/gallery/dark_side.jpg";
 import industrial from "../../public/gallery/industrial.jpg";
 import portraits from "../../public/gallery/portraits.jpg";
 
+import i18n from "i18next";
+import { useTranslation } from "react-i18next";
+
 // Анимации для каждого изображения
 const imageVariants = {
   hiddenLeft: { opacity: 0, x: -200 }, // Появление слева
@@ -17,6 +20,8 @@ const imageVariants = {
 };
 
 export default function Gallery() {
+  const { t, i18n } = useTranslation();
+
   return (
     <section className={styles.type_pictures}>
       {/* Первое изображение*/}
@@ -47,7 +52,7 @@ export default function Gallery() {
             transition={{ duration: 0.5, delay: 0.5 }}
             variants={imageVariants}
           >
-            Dark side
+            {t("gallery_dark_side")}
           </motion.h2>
         </Link>
       </motion.div>
@@ -81,7 +86,7 @@ export default function Gallery() {
             transition={{ duration: 0.5, delay: 0.5 }}
             variants={imageVariants}
           >
-            Industrial
+            {t("gallery_industrial")}
           </motion.h2>
         </Link>
       </motion.div>
@@ -115,7 +120,7 @@ export default function Gallery() {
             transition={{ duration: 0.5, delay: 0.5 }}
             variants={imageVariants}
           >
-            Portraits
+            {t("gallery_portraits")}
           </motion.h2>
         </Link>
       </motion.div>
