@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
             </AnimatePresence>
             <Analytics />
           </main>
-          <Footer />
+          {/* <Footer /> */}
         </NextUIProvider>
       </body>
     </html>

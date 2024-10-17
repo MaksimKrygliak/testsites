@@ -1,13 +1,12 @@
 "use client";
 
 import React from "react";
-import styles from "./events.module.scss";
+import styles from "./event.module.scss";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import event_1 from "../../public/images/events/post_most_reconnect.jpg";
-import event_2 from "../../public/images/events/mainPhoto.jpg";
+import Events from "../page"
 
 const imageVariants = {
   hiddenLeft: { opacity: 0, x: -200 }, // Появление слева
@@ -17,26 +16,13 @@ const imageVariants = {
   visible: { opacity: 1, x: 0, y: 0 }, // Конечное состояние
 };
 
-export default function Events() {
+export default function Event({ params }) {
   const { t, i18n } = useTranslation();
-
-  const events = [
-    {
-      title: t("events_1"),
-      description: t("events_1_description"),
-      image: event_1,
-    },
-    {
-      title: t("events_2"),
-      description: t("events_2_description"),
-      image: event_2,
-    },
-    // Добавь сюда другие статьи
-  ];
+  console.log(Events)
 
   return (
     <>
-      {/* <section className={styles.main_block}>
+      <section className={styles.main_block}>
         <motion.div
           className={styles.event}
           initial="hiddenTop"
@@ -49,7 +35,7 @@ export default function Events() {
           // },
           variants={imageVariants}
         >
-          <Image
+          {/* <Image
             // elementClassNames={styles.Image_LightGallery}
             // className={styles.Image_LightGallery}
             onLoad={(e) => console.log(e.target.naturalWidth)} // вызов функции после того как картинка полностью загрузится
@@ -75,41 +61,12 @@ export default function Events() {
                 // objectPosition: "top",
               }
             }
-          />
+          /> */}
           <h3 className={styles.name_event}>
-          <Link href={`/events/${encodeURIComponent('ARS_ALTERA')}`}>
-              t("events_1")
-            </Link>
+            {params.slug}
           </h3>
-          <p>{t("events_1_description")}</p>
+          <p>{params.slug}</p>
         </motion.div>
-      </section> */}
-      <section className={styles.main_block}>
-        {events.map((event) => (
-          <motion.div
-            className={styles.event}
-            initial="hiddenTop"
-            animate="visible"
-            transition={{ duration: 0.5 }}
-            variants={imageVariants}
-          >
-            <Image
-              alt={event.title}
-              src={event.image}
-              placeholder="blur"
-              width={300}
-              height={200}
-              quality={50}
-              loading="lazy"
-            />
-            <h3 className={styles.name_event}>
-              <Link href={`/events/${event.title}`}>
-                {event.title}
-              </Link>
-            </h3>
-            <p>{event.description}</p>
-          </motion.div>
-        ))}
       </section>
     </>
   );
