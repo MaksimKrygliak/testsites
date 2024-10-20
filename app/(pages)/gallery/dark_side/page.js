@@ -1,5 +1,3 @@
-"use client"
-import React from "react";
 import FotoGalery from "./components/FotoGalery.js";
 import styles from "./dark_side.module.scss";
 

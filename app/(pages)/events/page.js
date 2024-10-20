@@ -1,38 +1,26 @@
-"use client";
-
-import React from "react";
 import styles from "./events.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import event_1 from "../../public/images/events/post_most_reconnect.jpg";
-import event_2 from "../../public/images/events/mainPhoto.jpg";
+// import { motion } from "framer-motion";
+// import { useTranslation } from "react-i18next";
+import { EventsData } from "./events";
 
-const imageVariants = {
-  hiddenLeft: { opacity: 0, x: -200 }, // Появление слева
-  hiddenRight: { opacity: 0, x: 200 }, // Появление справа
-  hiddenTop: { opacity: 0, y: -200 }, // Появление сверху
-  hiddenDown: { opacity: 0, y: 200 }, // Появление снизу
-  visible: { opacity: 1, x: 0, y: 0 }, // Конечное состояние
-};
+// const imageVariants = {
+//   hiddenLeft: { opacity: 0, x: -200 }, // Появление слева
+//   hiddenRight: { opacity: 0, x: 200 }, // Появление справа
+//   hiddenTop: { opacity: 0, y: -200 }, // Появление сверху
+//   hiddenDown: { opacity: 0, y: 200 }, // Появление снизу
+//   visible: { opacity: 1, x: 0, y: 0 }, // Конечное состояние
+// };
 
-export default function Events() {
-  const { t, i18n } = useTranslation();
+async function getEventsData() {
+  const events = await EventsData();
+  return events;
+}
 
-  const events = [
-    {
-      title: t("events_1"),
-      description: t("events_1_description"),
-      image: event_1,
-    },
-    {
-      title: t("events_2"),
-      description: t("events_2_description"),
-      image: event_2,
-    },
-    // Добавь сюда другие статьи
-  ];
+export default async function Events() {
+  // const { t, i18n } = useTranslation();
+  const events = await getEventsData();
 
   return (
     <>
@@ -50,7 +38,6 @@ export default function Events() {
           variants={imageVariants}
         >
           <Image
-            // elementClassNames={styles.Image_LightGallery}
             // className={styles.Image_LightGallery}
             onLoad={(e) => console.log(e.target.naturalWidth)} // вызов функции после того как картинка полностью загрузится
             onError={(e) => console.error(e.target.id)} // Функция обратного вызова, которая вызывается, если изображение не загружается.
@@ -86,12 +73,12 @@ export default function Events() {
       </section> */}
       <section className={styles.main_block}>
         {events.map((event) => (
-          <motion.div
+          <div
             className={styles.event}
-            initial="hiddenTop"
-            animate="visible"
-            transition={{ duration: 0.5 }}
-            variants={imageVariants}
+            // initial="hiddenTop"
+            // animate="visible"
+            // transition={{ duration: 0.5 }}
+            // variants={imageVariants}
           >
             <Image
               alt={event.title}
@@ -103,14 +90,15 @@ export default function Events() {
               loading="lazy"
             />
             <h3 className={styles.name_event}>
-              <Link href={`/events/${event.title}`}>
+              <Link href={`/events/${encodeURIComponent(event.title)}`}>
                 {event.title}
               </Link>
             </h3>
             <p>{event.description}</p>
-          </motion.div>
+          </div>
         ))}
       </section>
     </>
   );
 }
+export const revalidate = 60;

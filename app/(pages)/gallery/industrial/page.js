@@ -1,9 +1,7 @@
-"use client"
-import React from "react";
 import FotoGalery from "./components/FotoGalery.js";
-import styles from "./portraits.module.scss";
+import styles from "./industrial.module.scss";
 
-export default function Portraits_Page() {
+export default function Industrial_Page() {
   // const fetchData = async () => {
   //    const response = await fetch("http://localhost:5000/client/reviews");
   //    const data = await response.json()
