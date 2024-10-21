@@ -92,7 +92,7 @@ export default async function Events() {
             />
             <h3 className={styles.name_event}>
               {/* <Link href={`/events/${event.title.replace(/ /g, '-')}`}> */}
-              <Link href={`/events/${event.id}`}>{event.title}</Link>
+              <Link href={`/events/${event.title}`}>{event.title}</Link>
             </h3>
             <p>{event.description}</p>
           </div>

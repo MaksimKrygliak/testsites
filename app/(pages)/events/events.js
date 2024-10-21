@@ -4,7 +4,6 @@ import event_2 from "@/public/images/events/POST_MOST_6_Reconnect.jpg";
 export async function EventsData() {
   const events = [
     {
-      //   title: "events-1",
       title:
         "Запрошуємо Вас на відкриття художньої виставки проєкту «ПОСТ МОСТ»",
       description:
@@ -15,7 +14,6 @@ export async function EventsData() {
       id: 1,
     },
     {
-      //   title: "events-2",
       title:
         "У Кам’янському презентували мистецький проєкт «POST MOST 6 Reconnect»",
       description:
