@@ -101,4 +101,4 @@ export default async function Events() {
     </>
   );
 }
-export const revalidate = 60;
+export const revalidate = 5;

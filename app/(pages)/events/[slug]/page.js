@@ -5,7 +5,7 @@ import { EventsData } from "../events";
 // Генерация статических маршрутов
 export async function generateStaticParams() {
   const events = await EventsData();
-  
+
   return events.map((event) => ({
     title: event.slug, // Используйте slug вместо title
   }));
@@ -13,13 +13,13 @@ export async function generateStaticParams() {
 
 export default async function EventPage({ params }) {
   // const eventSlug = decodeURIComponent(params.slug).replace(/-/g, ' ');
-  const eventSlug = params.slug;
+  const eventSlug = Number(params.slug);
 
   // Получение events с базы данных
   const events = await EventsData();
 
   // Находим событие по заголовку
-  const event = events.find((event) => event.id == eventSlug);
+  const event = events.find((event) => event.id === eventSlug);
 
   if (!event) {
     return <h1>Event not found</h1>;
@@ -44,4 +44,4 @@ export default async function EventPage({ params }) {
     </section>
   );
 }
-export const revalidate = 60;
+export const revalidate = 5;
