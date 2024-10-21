@@ -12,7 +12,11 @@ export async function generateStaticParams() {
 }
 
 export default async function EventPage({ params }) {
-  const eventSlug = decodeURIComponent(params.slug).replace(/-/g, ' ');
+  const eventSlug = decodeURIComponent(params.slug);
+  eventSlug.replace(/-/g, ' ');
+  console.log(eventSlug)
+
+  // Получение events с базы данных
   const events = await EventsData();
 
   // Находим событие по заголовку
