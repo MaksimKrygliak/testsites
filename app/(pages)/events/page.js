@@ -74,6 +74,7 @@ export default async function Events() {
       <section className={styles.main_block}>
         {events.map((event) => (
           <div
+            key={event.id}
             className={styles.event}
             // initial="hiddenTop"
             // animate="visible"
@@ -90,9 +91,8 @@ export default async function Events() {
               loading="lazy"
             />
             <h3 className={styles.name_event}>
-            <Link href={`/events/${event.title.replace(/ /g, '-')}`}>
-                {event.title}
-              </Link>
+              {/* <Link href={`/events/${event.title.replace(/ /g, '-')}`}> */}
+              <Link href={`/events/${event.id}`}>{event.title}</Link>
             </h3>
             <p>{event.description}</p>
           </div>
