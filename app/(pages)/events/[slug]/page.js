@@ -7,7 +7,7 @@ export async function generateStaticParams() {
   const events = await EventsData();
   
   return events.map((event) => ({
-    slug: encodeURIComponent(event.title), // Кодируем название для URL
+    slug: event.slug, // Используйте slug вместо title
   }));
 }
 
