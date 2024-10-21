@@ -90,7 +90,7 @@ export default async function Events() {
               loading="lazy"
             />
             <h3 className={styles.name_event}>
-              <Link href={`/events/${encodeURIComponent(event.title)}`}>
+            <Link href={`/events/${event.title.replace(/ /g, '-')}`}>
                 {event.title}
               </Link>
             </h3>
